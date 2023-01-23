@@ -10,5 +10,3 @@ Ptolemy Henson
 Jared Armstrong
 
 Our client is a school that we will be working closely with. 
-
-https://felipebarotayahua.github.io/ClientCheckin1/
