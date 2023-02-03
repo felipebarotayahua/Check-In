@@ -1,0 +1,184 @@
+/*
+	Constants
+
+	Changing any of these values will change the entire site.
+	Acces with "var(--variable-name)".
+*/
+:root {
+	--foreground-color: red;
+	--background-color: blue;
+	--navbar-color: red;
+	--text-color: yellow;
+
+	--nav-height: 5vh;
+	--foot-height: 5vh;
+
+	--left-padding: 2%;
+	--right-padding: 2%;
+
+	--nav-item-padding: 1vh;
+	--nav-item-right-margin: 2.5%;
+
+	--flip-card-width: 200px;
+	--flip-card-height: 300px;
+	--flip-card-padding: 2%;
+	--flip-effect-duration: 0.6s;
+
+	--flip-card-front-background-color: red;
+	--flip-card-back-background-color: darkred;
+
+	--flip-card-img-border-color: yellow;
+	--flip-card-img-border-weight: 2px;
+	--flip-card-img-border-type: solid;
+}
+
+* {
+	color: var(--text-color);
+}
+
+b {
+	font-weight: bolder;
+}
+
+body {
+	background-color: var(--background-color);
+
+	/*Reset margins so that elements can take up 100% of the window space if desired*/
+	margin: 0;
+	padding: 0;
+	/*Move out the way of the nav and footer elements*/
+	padding-top: var(--nav-height);
+	padding-bottom: var(--foot-height);
+}
+
+nav, footer {
+	background-color: var(--navbar-color);
+
+	display: flex;
+	flex-direction: row;
+
+	/*Make the nav element stick to the top of the page*/
+	position: fixed;
+	top: 0;
+	height: var(--nav-height);
+
+	width: 100%;
+
+	/*Center elements vertically*/
+	align-items: center;
+}
+
+.nav-item {
+	display: flex;
+	flex-direction: column;
+
+	background-color: var(--background-color);
+	color: var(--text-color);
+
+	/*Add a right margin to space out elements*/
+	margin-right: var(--nav-item-right-margin);
+
+	padding: var(--nav-item-padding);
+	align-items: center;
+
+	text-decoration: none;
+}
+
+footer {
+	height: var(--foot-height);
+	
+	/*Make the footer element stick to the bottom of the page*/
+	top: auto;
+	bottom: 0;
+	height: var(--foot-height);
+}
+
+.logo {
+	width: auto;
+	margin-right: var(--nav-item-right-margin);
+
+	/*Cap the height so it doesn't overflow. Maintain aspect ratio.*/
+	max-height: 100%;
+}
+
+body > * {
+	/*Add the padding back in*/
+	padding-left: var(--left-padding);
+	padding-right: var(--right-padding);
+}
+
+span.highlighted-term {
+	text-decoration: underline;
+	font-weight: bold;
+}
+
+/*
+	Flip Card Styling
+*/
+
+.flip-card-container{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+}
+
+.flip-card {
+	background-color: transparent;
+	width: var(--flip-card-width);
+	height: var(--flip-card-height);
+	perspective: 1000px;
+	padding: var(--flip-card-padding);
+}
+
+.flip-card-inner {
+	position: relative;
+	width: 100%;
+	height: 100%;
+
+	text-align: center;
+	transition: transform var(--flip-effect-duration);
+	transform-style: preserve-3d;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.flip-card:hover .flip-card-inner {
+	transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	backface-visibility: hidden;
+}
+
+.flip-card-front {
+	background-color: var(--flip-card-front-background-color);
+}
+
+.flip-card-back {
+	text-align: left;
+	background-color: var(--flip-card-back-background-color);
+	padding: 5%;
+	color: var(--text-color);
+	transform: rotateY(180deg);
+}
+
+.flip-card .img-container {
+	width: 80%;
+	height: 50%;
+	overflow: hidden;
+
+	/*Center horizontally*/
+	margin-left: auto;
+	margin-right: auto;
+
+	border: var(--flip-card-img-border-type) var(--flip-card-img-border-weight) var(--flip-card-img-border-color);
+}
+
+.fit-space {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
