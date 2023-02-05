@@ -1,6 +1,7 @@
 ## Jared's Contributions
 
 * Cloned PT's update repo to add my words in 
+* Pushed everyone's changes to main branch
 * Completed second 5 flash card contents
 	* active
 	* actual
