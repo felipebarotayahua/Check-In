@@ -1,4 +1,4 @@
-Homework & Client Check In Week 4
+**Homework & Client Check In Week 4**
 
 The words I contributed to are:
 Ambition
