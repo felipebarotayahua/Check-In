@@ -17,11 +17,11 @@
 	--right-padding: 2%;
 
 	--nav-item-padding: 1vh;
-	--nav-item-right-margin: 2.5%;
+	--nav-item-gap: 2.5%;
 
 	--flip-card-width: 200px;
 	--flip-card-height: 350px;
-	--flip-card-padding: 2%;
+	--flip-card-row-gap: 4vh;
 	--flip-effect-duration: 0.6s;
 
 	--flip-card-front-background-color: red;
@@ -58,7 +58,7 @@ nav, footer {
 
 	display: flex;
 	flex-direction: row;
-
+	gap: var(--nav-item-gap);
 	/*Make the nav element stick to the top of the page*/
 	position: fixed;
 	top: 0;
@@ -80,9 +80,6 @@ nav, footer {
 	background-color: var(--background-color);
 	color: var(--text-color);
 
-	/*Add a right margin to space out elements*/
-	margin-right: var(--nav-item-right-margin);
-
 	padding: var(--nav-item-padding);
 	align-items: center;
 
@@ -99,11 +96,9 @@ footer {
 }
 
 .logo {
-	width: auto;
-	margin-right: var(--nav-item-right-margin);
-
 	/*Cap the height so it doesn't overflow. Maintain aspect ratio.*/
 	max-height: 100%;
+	width: auto;
 }
 
 body > * {
@@ -121,11 +116,12 @@ span.highlighted-term {
 	Flip Card Styling
 */
 
-.flip-card-container{
+.flip-card-container {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
+	row-gap: var(--flip-card-row-gap);
 }
 
 .flip-card {
@@ -133,7 +129,6 @@ span.highlighted-term {
 	width: var(--flip-card-width);
 	height: var(--flip-card-height);
 	perspective: 1000px;
-	padding: var(--flip-card-padding);
 }
 
 .flip-card-inner {
