@@ -20,7 +20,7 @@
 	--nav-item-right-margin: 2.5%;
 
 	--flip-card-width: 200px;
-	--flip-card-height: 300px;
+	--flip-card-height: 350px;
 	--flip-card-padding: 2%;
 	--flip-effect-duration: 0.6s;
 
@@ -47,8 +47,10 @@ body {
 	margin: 0;
 	padding: 0;
 	/*Move out the way of the nav and footer elements*/
-	padding-top: var(--nav-height);
-	padding-bottom: var(--foot-height);
+	margin-top: var(--nav-height);
+	margin-bottom: var(--foot-height);
+
+	overflow: scroll;
 }
 
 nav, footer {
@@ -66,6 +68,9 @@ nav, footer {
 
 	/*Center elements vertically*/
 	align-items: center;
+
+	/*Make sure the nav element is on top of everything else*/
+	z-index: 1000;
 }
 
 .nav-item {
@@ -158,9 +163,10 @@ span.highlighted-term {
 }
 
 .flip-card-back {
+	box-sizing: border-box;
+	padding: 5%;
 	text-align: left;
 	background-color: var(--flip-card-back-background-color);
-	padding: 5%;
 	color: var(--text-color);
 	transform: rotateY(180deg);
 }
