@@ -10,13 +10,14 @@
 	--navbar-color: red;
 	--text-color: yellow;
 
-	--nav-height: 5vh;
-	--foot-height: 5vh;
+	--nav-height: 7vh;
+	--foot-height: 7vh;
 
 	--left-padding: 2%;
 	--right-padding: 2%;
 
 	--nav-item-padding: 1vh;
+	--nav-item-max-height: 80%;
 	--nav-item-gap: 2.5%;
 
 	--flip-card-width: 200px;
@@ -74,6 +75,7 @@ nav, footer {
 }
 
 .nav-item {
+	box-sizing: border-box;
 	display: flex;
 	flex-direction: column;
 
@@ -81,6 +83,8 @@ nav, footer {
 	color: var(--text-color);
 
 	padding: var(--nav-item-padding);
+	max-height: var(--nav-item-max-height);
+
 	align-items: center;
 
 	text-decoration: none;
