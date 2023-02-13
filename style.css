@@ -91,14 +91,6 @@ nav > ul {
 	margin: 0;
 }
 
-footer {
-	background-color: var(--foot-color);
-	height: var(--foot-height);
-
-	/*Center elements vertically*/
-	justify-content: center;
-}
-
 nav > ul li {
 	box-sizing: border-box;
 	display: flex;
@@ -121,11 +113,15 @@ nav > ul li > a {
 
 footer {
 	height: var(--foot-height);
-	
+	background-color: var(--foot-color);
+
 	/*Make the footer element stick to the bottom of the page*/
 	top: auto;
 	bottom: 0;
 	height: var(--foot-height);
+
+	/*Center elements vertically*/
+	justify-content: center;
 }
 
 .logo {
