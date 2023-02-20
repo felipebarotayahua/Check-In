@@ -58,7 +58,6 @@ body {
 	margin: 0;
 	padding: 0;
 	/*Move out the way of the nav and footer elements*/
-	margin-top: 2%;
 	margin-bottom: var(--foot-height);
 
 	overflow: scroll;
