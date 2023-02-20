@@ -5,13 +5,26 @@
 	Acces with "var(--variable-name)".
 */
 :root {
-	--foreground-color: red;
-	--background-color: blue;
+	--gold: #7c6e52;
+	--black: #242424;
+	--white: #ffffff;
+
+	--foreground-color: var(--gold);
+	--background-color: var(--white);
 	--navbar-color: var(--foreground-color);
+
+	--navbar-item-color: var(--black);
+	--navbar-link-color: var(--white);
+	--navbar-visited-color: var(--white);
+	--navbar-focus-color: var(--white);
+	--navbar-hover-color: var(--white);
+	--navbar-active-color: var(--white);
+
 	--foot-color: var(--foreground-color);
-	--text-color: yellow;
 
 	--nav-height: 7vh;
+	--nav-width: 30%;
+	--nav-padding: 2%;
 	--foot-height: 7vh;
 
 	--left-padding: 2%;
@@ -26,16 +39,14 @@
 	--flip-card-row-gap: 4vh;
 	--flip-effect-duration: 0.6s;
 
-	--flip-card-front-background-color: darkblue;
-	--flip-card-back-background-color: darkred;
+	--flip-card-front-background-color: var(--gold);
+	--flip-card-front-text-color: var(--white);
+	--flip-card-back-background-color: var(--black);
+	--flip-card-back-text-color: var(--white);
 
 	--flip-card-img-border-color: yellow;
 	--flip-card-img-border-weight: 2px;
 	--flip-card-img-border-type: solid;
-}
-
-* {
-	color: var(--text-color);
 }
 
 b {
@@ -49,7 +60,7 @@ body {
 	margin: 0;
 	padding: 0;
 	/*Move out the way of the nav and footer elements*/
-	margin-top: var(--nav-height);
+	margin-top: 2%;
 	margin-bottom: var(--foot-height);
 
 	overflow: scroll;
@@ -63,20 +74,30 @@ nav, footer {
 	position: fixed;
 	top: 0;
 
-	width: 100%;
-
 	/*Make sure the nav element is on top of everything else*/
 	z-index: 1000;
 }
 
 nav {
+	left: 0;
+	transform: translateY(-100%);
 	background-color: var(--navbar-color);
-	height: var(--nav-height);
+	height: 100vh;
+	width: var(--nav-width);
+	padding: var(--nav-padding);
+}
+
+nav:target {
+	transform: translateY(0);  
+}
+
+footer {
+	width: 100%;
 }
 
 nav > ul {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	gap: var(--nav-item-gap);
 
 	/*Center elements vertically*/
@@ -89,26 +110,99 @@ nav > ul {
 	width: 100%;
 	padding: 0;
 	margin: 0;
+
+	padding-top: 10%;
 }
 
-nav > ul li {
+nav > ul li > a {
 	box-sizing: border-box;
-	display: flex;
-	flex-direction: column;
 
-	background-color: var(--background-color);
-	color: var(--text-color);
+	background-color: var(--navbar-item-color);
 
 	padding: var(--nav-item-padding);
 	max-height: var(--nav-item-max-height);
 
 	align-items: center;
-
 	text-decoration: none;
 }
 
-nav > ul li > a {
-	text-decoration: none;
+nav > ul li > a:link {
+	color: var(--navbar-link-color);
+}
+
+nav > ul li > a:visited {
+	color: var(--navbar-visited-color);
+}
+
+nav > ul li > a:focus {
+	color: var(--navbar-focus-color);
+}
+
+nav > ul li > a:hover {
+	color: var(--navbar-hover-color);
+}
+
+nav > ul li > a:active {
+	color: var(--navbar-active-color);
+}
+
+#menu-close-button {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+}
+
+#logo {
+	display: none;
+}
+
+#twitter {
+	display: none;
+}
+
+/*Horizontal Menu*/
+@media screen and (min-width: 700px) {
+	nav {
+		flex-direction: row;
+		height: var(--nav-height);
+		padding: 0;
+		padding-left: var(--nav-padding);
+		width: 100vw;
+		transform: translateY(0);
+	}
+
+	body {
+		margin-top: var(--nav-height);
+	}
+
+	#logo {
+		display: block;
+		height: 65%;
+		width: auto;
+	}
+
+	#hamburger-button {
+		display: none;
+	}
+
+	#menu-close-button {
+		display: none;
+	}
+
+	nav > ul {
+		flex-direction: row;
+		padding-top: 0;
+	}
+
+	nav > ul li > a {
+		padding: var(--nav-item-padding);
+		max-height: var(--nav-item-max-height);
+	}
+
+	#twitter {
+		display: block;
+	}
 }
 
 footer {
@@ -124,10 +218,12 @@ footer {
 	justify-content: center;
 }
 
-.logo {
-	/*Cap the height so it doesn't overflow. Maintain aspect ratio.*/
-	max-height: 100%;
-	width: auto;
+nav > ul li > a:hover {
+	color: var(--navbar-hover-color);
+}
+
+nav > ul li > a:active {
+	color: var(--navbar-active-color);
 }
 
 body > * {
@@ -184,6 +280,7 @@ span.highlighted-term {
 
 .flip-card-front {
 	background-color: var(--flip-card-front-background-color);
+	color: var(--flip-card-front-text-color);
 }
 
 .flip-card-back {
@@ -191,7 +288,7 @@ span.highlighted-term {
 	padding: 5%;
 	text-align: left;
 	background-color: var(--flip-card-back-background-color);
-	color: var(--text-color);
+	color: var(--flip-card-back-text-color);
 	transform: rotateY(180deg);
 }
 
